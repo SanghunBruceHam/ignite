@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next';
-import { Flame, Hand, Users, Target, Flag } from 'lucide-react';
+import { Flame, Hand, Users, Target, Flag, Bomb, Shuffle, Thermometer, HelpCircle } from 'lucide-react';
 
 const GAMES = [
     { key: 'bomb31', Icon: Flame, labelKey: 'menu.game_31bomb', color: 'var(--accent-primary)' },
@@ -8,6 +8,11 @@ const GAMES = [
     { key: 'neverhave', Icon: Target, labelKey: 'menu.game_never_have_i_ever', color: 'var(--neon-blue)' },
     { key: 'kingscup', Icon: null, labelKey: 'menu.game_kings_cup', color: 'var(--neon-pink)' },
     { key: 'redflag', Icon: Flag, labelKey: 'menu.game_redflag', color: '#f06292' },
+    { key: 'truthbomb', Icon: Bomb, labelKey: 'menu.game_truthbomb', color: '#FF6B35' },
+    { key: 'mostwanted', Icon: Target, labelKey: 'menu.game_mostwanted', color: '#A855F7' },
+    { key: 'orwhat', Icon: Shuffle, labelKey: 'menu.game_orwhat', color: '#F59E0B' },
+    { key: 'hotseat', Icon: Thermometer, labelKey: 'menu.game_hotseat', color: '#EF4444' },
+    { key: 'twolies', Icon: HelpCircle, labelKey: 'menu.game_twolies', color: '#10B981' },
 ];
 
 export const GameRecommendations = ({ currentGame, onSelectGame }) => {
@@ -15,22 +20,8 @@ export const GameRecommendations = ({ currentGame, onSelectGame }) => {
     const others = GAMES.filter(g => g.key !== currentGame);
 
     return (
-        <div style={{
-            marginTop: '1rem',
-            paddingTop: '1rem',
-            borderTop: '1px solid var(--glass-border)',
-            width: '100%'
-        }}>
-            <p style={{
-                fontSize: '0.65rem',
-                fontWeight: 700,
-                letterSpacing: '3px',
-                color: 'var(--text-secondary)',
-                textTransform: 'uppercase',
-                marginBottom: '0.6rem',
-                textAlign: 'center',
-                fontFamily: "'Space Grotesk', sans-serif"
-            }}>
+        <div style={{ marginTop: '1rem', paddingTop: '1rem', borderTop: '1px solid var(--glass-border)', width: '100%' }}>
+            <p style={{ fontSize: '0.65rem', fontWeight: 700, letterSpacing: '3px', color: 'var(--text-secondary)', textTransform: 'uppercase', marginBottom: '0.6rem', textAlign: 'center', fontFamily: "'Space Grotesk', sans-serif" }}>
                 PLAY NEXT
             </p>
             <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap', justifyContent: 'center' }}>
@@ -38,33 +29,9 @@ export const GameRecommendations = ({ currentGame, onSelectGame }) => {
                     <button
                         key={key}
                         onClick={() => onSelectGame(key)}
-                        style={{
-                            display: 'flex',
-                            alignItems: 'center',
-                            gap: '0.4rem',
-                            padding: '0.35rem 0.75rem',
-                            background: 'rgba(255,255,255,0.04)',
-                            border: `1px solid ${color}44`,
-                            borderRadius: '999px',
-                            color: color,
-                            fontSize: '0.7rem',
-                            fontWeight: 700,
-                            letterSpacing: '1px',
-                            textTransform: 'uppercase',
-                            cursor: 'pointer',
-                            fontFamily: "'Space Grotesk', sans-serif",
-                            transition: 'background 0.15s ease, border-color 0.15s ease',
-                            whiteSpace: 'nowrap',
-                            width: 'auto'
-                        }}
-                        onMouseEnter={e => {
-                            e.currentTarget.style.background = `${color}18`;
-                            e.currentTarget.style.borderColor = color;
-                        }}
-                        onMouseLeave={e => {
-                            e.currentTarget.style.background = 'rgba(255,255,255,0.04)';
-                            e.currentTarget.style.borderColor = `${color}44`;
-                        }}
+                        style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', padding: '0.35rem 0.75rem', background: 'rgba(255,255,255,0.04)', border: `1px solid ${color}44`, borderRadius: '999px', color: color, fontSize: '0.7rem', fontWeight: 700, letterSpacing: '1px', textTransform: 'uppercase', cursor: 'pointer', fontFamily: "'Space Grotesk', sans-serif", transition: 'background 0.15s ease, border-color 0.15s ease', whiteSpace: 'nowrap', width: 'auto' }}
+                        onMouseEnter={e => { e.currentTarget.style.background = `${color}18`; e.currentTarget.style.borderColor = color; }}
+                        onMouseLeave={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.04)'; e.currentTarget.style.borderColor = `${color}44`; }}
                     >
                         {Icon && <Icon size={12} />}
                         {t(labelKey)}

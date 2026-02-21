@@ -8,7 +8,12 @@
         "game_never_have_i_ever": "NEVER HAVE I EVER",
         "game_kings_cup": "KING's CUP",
         "game_redflag": "RED FLAG",
-        "after_dark": "AFTER DARK"
+        "after_dark": "AFTER DARK",
+        "game_truthbomb": "TRUTH BOMB",
+        "game_mostwanted": "MOST WANTED",
+        "game_orwhat": "OR WHAT",
+        "game_hotseat": "HOT SEAT",
+        "game_twolies": "TWO LIES"
     },
     "common": {
         "start": "START",
@@ -338,6 +343,283 @@
                 "q": "Who sends a 'you up?' text and calls it romance?",
                 "guilty": "boys"
             }
+        ]
+    },
+    "truthbomb": {
+        "rules": [
+            "Draw a card — truth or drink!",
+            "Answer honestly OR take a drink",
+            "Group decides if your answer was enough"
+        ],
+        "answer_btn": "ANSWERED ��",
+        "drink_btn": "DRINK 🍺",
+        "next_prompt": "NEXT",
+        "shame_label": "drinks taken",
+        "prompts": [
+            "What's the most embarrassing thing you've done at a party?",
+            "Have you ever pretended to be sick to avoid someone?",
+            "What's the boldest lie you've told to get out of trouble?",
+            "Have you ever had a crush on someone in this room?",
+            "What's something you've done that you'd never admit sober?",
+            "Have you ever eavesdropped on a private conversation?",
+            "What's the worst date you've ever been on?",
+            "Have you ever stalked an ex on social media today?",
+            "What's the most childish thing you still do secretly?",
+            "Have you ever cried during a commercial?",
+            "What's a secret you've kept from your best friend?",
+            "Have you ever pretended to laugh at a joke you didn't get?",
+            "What's the most embarrassing thing in your camera roll right now?",
+            "Have you ever ghosted someone you were dating?",
+            "What's the weirdest thing you've Googled this week?",
+            "Have you ever talked trash about someone in this room?",
+            "What's a habit you'd be embarrassed if people found out about?",
+            "Have you ever sent a text to the wrong person by accident?",
+            "What's the biggest white lie you tell regularly?",
+            "Have you ever faked being asleep to avoid a conversation?"
+        ],
+        "after_dark_prompts": [
+            "What's the most embarrassing situation you've been in with someone you were attracted to?",
+            "Have you ever kissed someone in this room?",
+            "What's the furthest you've gone on a first date?",
+            "Have you ever had a dream about someone in this room?",
+            "What's the boldest move you've ever made on someone?"
+        ]
+    },
+    "mostwanted": {
+        "rules": [
+            "Read the prompt out loud",
+            "Everyone simultaneously points at the most guilty person",
+            "Most fingers = drinks!"
+        ],
+        "point_label": "EVERYONE POINT AT...",
+        "next_prompt": "NEXT →",
+        "prompts": [
+            "Most likely to accidentally start a fire trying to cook",
+            "Most likely to cry at a Disney movie",
+            "Most likely to show up late to their own wedding",
+            "Most likely to become a meme",
+            "Most likely to text their ex tonight",
+            "Most likely to laugh at a funeral",
+            "Most likely to get lost in a city they know well",
+            "Most likely to get kicked out of an all-you-can-eat buffet",
+            "Most likely to fall asleep at a concert",
+            "Most likely to accidentally like a 3-year-old photo while stalking someone",
+            "Most likely to forget their best friend's birthday",
+            "Most likely to get into an argument with a waiter",
+            "Most likely to spend their last money on food",
+            "Most likely to slide into a celebrity's DMs",
+            "Most likely to fake being sick to skip work",
+            "Most likely to make a scene in public",
+            "Most likely to trip walking up stairs",
+            "Most likely to be famous in 10 years",
+            "Most likely to still be single at 40 because they're too picky",
+            "Most likely to end up on a reality TV show"
+        ],
+        "after_dark_prompts": [
+            "Most likely to have a secret they'd die if their parents found out",
+            "Most likely to swipe right on someone they just said they'd never date",
+            "Most likely to have a hidden situationship right now",
+            "Most likely to fall in love on vacation and ghost them after",
+            "Most likely to have kissed someone in this room"
+        ]
+    },
+    "orwhat": {
+        "rules": [
+            "Read both options aloud",
+            "Everyone raises a hand for A or B",
+            "Minority side drinks!"
+        ],
+        "or_label": "OR",
+        "minority_drinks": "MINORITY DRINKS 🍺",
+        "next_prompt": "NEXT",
+        "a_label": "A",
+        "b_label": "B",
+        "prompts": [
+            {
+                "a": "Read everyone's texts for a day",
+                "b": "Have everyone read yours"
+            },
+            {
+                "a": "Never drink again",
+                "b": "Never eat your favorite food again"
+            },
+            {
+                "a": "Be fluent in every language",
+                "b": "Be able to play every instrument"
+            },
+            {
+                "a": "Have no social media forever",
+                "b": "Have all your DMs made public"
+            },
+            {
+                "a": "Always say what you think",
+                "b": "Never be able to share your opinion"
+            },
+            {
+                "a": "Know when you'll die",
+                "b": "Know who you'll marry"
+            },
+            {
+                "a": "1M followers who hate you",
+                "b": "100 followers who love you"
+            },
+            {
+                "a": "Date someone 20 years older",
+                "b": "20 years younger"
+            },
+            {
+                "a": "Lose memory of the last 5 years",
+                "b": "Never make a new memory again"
+            },
+            {
+                "a": "Only eat hot food forever",
+                "b": "Only eat cold food forever"
+            },
+            {
+                "a": "Be the smartest person in every room",
+                "b": "Be the most attractive"
+            },
+            {
+                "a": "Go back to age 10 with your current wisdom",
+                "b": "Skip to 60 knowing everything works out"
+            },
+            {
+                "a": "Never use your phone again",
+                "b": "Never drink alcohol again"
+            },
+            {
+                "a": "Unlimited money but no friends",
+                "b": "Be broke with amazing people"
+            },
+            {
+                "a": "Travel the world alone",
+                "b": "Stay home with your favorite people"
+            },
+            {
+                "a": "Be famous for something embarrassing",
+                "b": "Be anonymous but respected"
+            },
+            {
+                "a": "Always be brutally honest",
+                "b": "Always say what people want to hear"
+            },
+            {
+                "a": "Be royalty in medieval times",
+                "b": "Be a billionaire today"
+            },
+            {
+                "a": "Have 10 minutes of fame",
+                "b": "A lifetime of quiet success"
+            },
+            {
+                "a": "Never age past 25",
+                "b": "Know everything about your future"
+            }
+        ],
+        "after_dark_prompts": [
+            {
+                "a": "Kiss your worst enemy",
+                "b": "Never kiss anyone again"
+            },
+            {
+                "a": "One amazing night you can never talk about",
+                "b": "A boring story everyone wants to hear"
+            },
+            {
+                "a": "Be irresistible but know it's all fake",
+                "b": "Be average but completely real"
+            },
+            {
+                "a": "Know every person's true opinion of you",
+                "b": "Never know but always feel loved"
+            },
+            {
+                "a": "Date your best friend",
+                "b": "Stay friends with them forever"
+            }
+        ]
+    },
+    "hotseat": {
+        "rules": [
+            "Pass phone to the person in the hot seat",
+            "Questions appear one by one",
+            "Answer honestly OR take a drink and pass"
+        ],
+        "pass_label": "PASS TO THE HOT SEAT 🔥",
+        "answer_btn": "ANSWERED ✓",
+        "drink_btn": "SKIP 🍺",
+        "next_prompt": "NEXT",
+        "shame_label": "drinks",
+        "start_btn": "START",
+        "prompts": [
+            "What's your biggest insecurity?",
+            "Who in this room would you call at 3am in an emergency?",
+            "What's a lie you told today?",
+            "Who in this room do you trust the least?",
+            "What's one thing you've never told anyone here?",
+            "If you could erase one memory, what would it be?",
+            "Rate everyone in this room from most to least funny. Out loud.",
+            "Who in this room do you think has the biggest ego?",
+            "What's the worst decision you've made this month?",
+            "What's a compliment you've received that you didn't believe?",
+            "Who in this room would you be most shocked to see arrested?",
+            "What's something you're too scared to do but wish you could?",
+            "Name one habit you secretly judge others for.",
+            "What do you think people say about you behind your back?",
+            "If you had to leave NOW and only say goodbye to one person here, who?",
+            "Show the last thing you searched on your phone.",
+            "What's a food opinion that would get you cancelled?",
+            "Who in this room do you think is the most mature?",
+            "If this group made a reality show, what would your edit be?",
+            "What's something you did this week you're not proud of?"
+        ],
+        "after_dark_prompts": [
+            "Who in this room do you find most attractive? Be honest.",
+            "What's something you've done that you'd be ashamed to tell a partner?",
+            "Have you ever had feelings for someone in this room?",
+            "Show your recent likes on social media. All of them.",
+            "What's the boldest thing you've done for someone you were attracted to?"
+        ]
+    },
+    "twolies": {
+        "rules": [
+            "Read the theme aloud",
+            "Share 2 truths and 1 lie — in any order",
+            "Group votes on which is the lie — wrong voters drink!"
+        ],
+        "theme_label": "YOUR THEME:",
+        "vote_label": "VOTE: WHICH IS THE LIE?",
+        "reveal_btn": "REVEAL THE LIE",
+        "next_prompt": "NEXT ROUND",
+        "option_labels": [
+            "#1",
+            "#2",
+            "#3"
+        ],
+        "wrong_drink": "Wrong voters drink! 🍺",
+        "prompts": [
+            "Your most embarrassing moment",
+            "Something from your childhood",
+            "A person you've had a crush on",
+            "Something you've never admitted before",
+            "A secret talent or skill you have",
+            "Your absolute worst habit",
+            "Something you regret doing",
+            "A time you got in serious trouble",
+            "Your biggest fear",
+            "Something you did that surprised even yourself",
+            "A time you were at the wrong place at the wrong time",
+            "Something weird that happened while traveling",
+            "Your relationship history",
+            "A night out that went sideways",
+            "Something from your work or school life"
+        ],
+        "after_dark_prompts": [
+            "Your most scandalous encounter",
+            "Facts about someone you've been with",
+            "Your most intimate secret",
+            "The last time you were in a situationship",
+            "What you really think about relationships"
         ]
     }
 }

@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Globe, Flame, Hand, Users, Target, Club, Share2, Flag } from 'lucide-react';
+import { Globe, Flame, Hand, Users, Target, Club, Share2, Flag, Bomb, Zap, Thermometer, Shuffle, HelpCircle } from 'lucide-react';
 import { useState, useRef, useEffect } from 'react';
 
 export const MainMenu = ({ onSelectGame, afterDark, onToggleAfterDark }) => {
@@ -294,6 +294,46 @@ export const MainMenu = ({ onSelectGame, afterDark, onToggleAfterDark }) => {
                             <Flag size={28} color="#f06292" style={{ filter: 'drop-shadow(0 0 10px #f06292)', flexShrink: 0 }} />
                             <span style={{ flex: 1, textAlign: 'left', fontWeight: 900, textShadow: '0 0 10px rgba(255,255,255,0.2)' }}>{t('menu.game_redflag')}</span>
                             <span style={{ fontSize: '0.8rem', background: 'linear-gradient(135deg, #4fc3f7, #f06292)', color: 'black', padding: '0.25rem 0.75rem', borderRadius: '4px', fontWeight: 900 }}>🚩 DRAMA</span>
+                        </div>
+                    </motion.button>
+
+                    <motion.button variants={itemVariants} whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.9 }} onClick={() => onSelectGame('truthbomb')} style={{ borderLeft: '6px solid #FF6B35', fontSize: 'clamp(1.1rem, 4vw, 1.5rem)', padding: 'clamp(1rem, 3vw, 1.5rem)', display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: '0.25rem' }}>
+                        <div style={{ display: 'flex', alignItems: 'center', gap: 'clamp(0.5rem, 2vw, 1rem)', width: '100%' }}>
+                            <Bomb size={28} color="#FF6B35" style={{ filter: 'drop-shadow(0 0 10px #FF6B35)', flexShrink: 0 }} />
+                            <span style={{ flex: 1, textAlign: 'left', fontWeight: 900 }}>{t('menu.game_truthbomb')}</span>
+                            <span style={{ fontSize: '0.8rem', background: '#FF6B35', color: 'black', padding: '0.25rem 0.75rem', borderRadius: '4px', fontWeight: 900 }}>💣 TRUTH</span>
+                        </div>
+                    </motion.button>
+
+                    <motion.button variants={itemVariants} whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.9 }} onClick={() => onSelectGame('mostwanted')} style={{ borderLeft: '6px solid #A855F7', fontSize: 'clamp(1.1rem, 4vw, 1.5rem)', padding: 'clamp(1rem, 3vw, 1.5rem)', display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: '0.25rem' }}>
+                        <div style={{ display: 'flex', alignItems: 'center', gap: 'clamp(0.5rem, 2vw, 1rem)', width: '100%' }}>
+                            <Target size={28} color="#A855F7" style={{ filter: 'drop-shadow(0 0 10px #A855F7)', flexShrink: 0 }} />
+                            <span style={{ flex: 1, textAlign: 'left', fontWeight: 900 }}>{t('menu.game_mostwanted')}</span>
+                            <span style={{ fontSize: '0.8rem', background: '#A855F7', color: 'black', padding: '0.25rem 0.75rem', borderRadius: '4px', fontWeight: 900 }}>🎯 POINT</span>
+                        </div>
+                    </motion.button>
+
+                    <motion.button variants={itemVariants} whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.9 }} onClick={() => onSelectGame('orwhat')} style={{ borderLeft: '6px solid #F59E0B', fontSize: 'clamp(1.1rem, 4vw, 1.5rem)', padding: 'clamp(1rem, 3vw, 1.5rem)', display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: '0.25rem' }}>
+                        <div style={{ display: 'flex', alignItems: 'center', gap: 'clamp(0.5rem, 2vw, 1rem)', width: '100%' }}>
+                            <Shuffle size={28} color="#F59E0B" style={{ filter: 'drop-shadow(0 0 10px #F59E0B)', flexShrink: 0 }} />
+                            <span style={{ flex: 1, textAlign: 'left', fontWeight: 900 }}>{t('menu.game_orwhat')}</span>
+                            <span style={{ fontSize: '0.8rem', background: '#F59E0B', color: 'black', padding: '0.25rem 0.75rem', borderRadius: '4px', fontWeight: 900 }}>⚡ SPLIT</span>
+                        </div>
+                    </motion.button>
+
+                    <motion.button variants={itemVariants} whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.9 }} onClick={() => onSelectGame('hotseat')} style={{ borderLeft: '6px solid #EF4444', fontSize: 'clamp(1.1rem, 4vw, 1.5rem)', padding: 'clamp(1rem, 3vw, 1.5rem)', display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: '0.25rem' }}>
+                        <div style={{ display: 'flex', alignItems: 'center', gap: 'clamp(0.5rem, 2vw, 1rem)', width: '100%' }}>
+                            <Thermometer size={28} color="#EF4444" style={{ filter: 'drop-shadow(0 0 10px #EF4444)', flexShrink: 0 }} />
+                            <span style={{ flex: 1, textAlign: 'left', fontWeight: 900 }}>{t('menu.game_hotseat')}</span>
+                            <span style={{ fontSize: '0.8rem', background: '#EF4444', color: 'black', padding: '0.25rem 0.75rem', borderRadius: '4px', fontWeight: 900 }}>🔥 GRILL</span>
+                        </div>
+                    </motion.button>
+
+                    <motion.button variants={itemVariants} whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.9 }} onClick={() => onSelectGame('twolies')} style={{ borderLeft: '6px solid #10B981', fontSize: 'clamp(1.1rem, 4vw, 1.5rem)', padding: 'clamp(1rem, 3vw, 1.5rem)', display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: '0.25rem' }}>
+                        <div style={{ display: 'flex', alignItems: 'center', gap: 'clamp(0.5rem, 2vw, 1rem)', width: '100%' }}>
+                            <HelpCircle size={28} color="#10B981" style={{ filter: 'drop-shadow(0 0 10px #10B981)', flexShrink: 0 }} />
+                            <span style={{ flex: 1, textAlign: 'left', fontWeight: 900 }}>{t('menu.game_twolies')}</span>
+                            <span style={{ fontSize: '0.8rem', background: '#10B981', color: 'black', padding: '0.25rem 0.75rem', borderRadius: '4px', fontWeight: 900 }}>🃏 BLUFF</span>
                         </div>
                     </motion.button>
 

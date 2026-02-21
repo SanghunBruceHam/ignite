@@ -53,7 +53,8 @@ export const GameRecommendations = ({ currentGame, onSelectGame }) => {
                             cursor: 'pointer',
                             fontFamily: "'Space Grotesk', sans-serif",
                             transition: 'background 0.15s ease, border-color 0.15s ease',
-                            whiteSpace: 'nowrap'
+                            whiteSpace: 'nowrap',
+                            width: 'auto'
                         }}
                         onMouseEnter={e => {
                             e.currentTarget.style.background = `${color}18`;

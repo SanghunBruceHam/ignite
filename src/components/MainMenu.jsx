@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Globe, Flame, Hand, Users, Target, Club, Share2 } from 'lucide-react';
+import { Globe, Flame, Hand, Users, Target, Club, Share2, Flag } from 'lucide-react';
 import { useState, useRef, useEffect } from 'react';
 
 export const MainMenu = ({ onSelectGame, afterDark, onToggleAfterDark }) => {
@@ -280,6 +280,20 @@ export const MainMenu = ({ onSelectGame, afterDark, onToggleAfterDark }) => {
                             <Club size={28} color="var(--neon-pink)" style={{ filter: 'drop-shadow(0 0 10px var(--neon-pink))', flexShrink: 0 }} />
                             <span style={{ flex: 1, textAlign: 'left', fontWeight: 900, textShadow: '0 0 10px rgba(255,255,255,0.2)' }}>{t('menu.game_kings_cup')}</span>
                             <span style={{ fontSize: '0.8rem', background: 'var(--neon-pink)', color: 'black', padding: '0.25rem 0.75rem', borderRadius: '4px', fontWeight: 900 }}>💀 FATAL</span>
+                        </div>
+                    </motion.button>
+
+                    <motion.button
+                        variants={itemVariants}
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.9 }}
+                        onClick={() => onSelectGame('redflag')}
+                        style={{ borderLeft: '6px solid #f06292', fontSize: 'clamp(1.1rem, 4vw, 1.5rem)', padding: 'clamp(1rem, 3vw, 1.5rem)', display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: '0.25rem' }}
+                    >
+                        <div style={{ display: 'flex', alignItems: 'center', gap: 'clamp(0.5rem, 2vw, 1rem)', width: '100%' }}>
+                            <Flag size={28} color="#f06292" style={{ filter: 'drop-shadow(0 0 10px #f06292)', flexShrink: 0 }} />
+                            <span style={{ flex: 1, textAlign: 'left', fontWeight: 900, textShadow: '0 0 10px rgba(255,255,255,0.2)' }}>{t('menu.game_redflag')}</span>
+                            <span style={{ fontSize: '0.8rem', background: 'linear-gradient(135deg, #4fc3f7, #f06292)', color: 'black', padding: '0.25rem 0.75rem', borderRadius: '4px', fontWeight: 900 }}>🚩 DRAMA</span>
                         </div>
                     </motion.button>
 

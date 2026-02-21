@@ -6,6 +6,7 @@ import { NunchiTap } from './components/NunchiTap';
 import { VibeVote } from './components/VibeVote';
 import { NeverHaveIEver } from './components/NeverHaveIEver';
 import { KingsCup } from './components/KingsCup';
+import { RedFlag } from './components/RedFlag';
 
 function App() {
   const [activeGame, setActiveGame] = useState('menu');
@@ -18,6 +19,7 @@ function App() {
       case 'vibevote': return <VibeVote key="vibevote" onBack={() => setActiveGame('menu')} onSelectGame={setActiveGame} afterDark={afterDark} />;
       case 'neverhave': return <NeverHaveIEver key="neverhave" onBack={() => setActiveGame('menu')} onSelectGame={setActiveGame} afterDark={afterDark} />;
       case 'kingscup': return <KingsCup key="kingscup" onBack={() => setActiveGame('menu')} onSelectGame={setActiveGame} />;
+      case 'redflag': return <RedFlag key="redflag" onBack={() => setActiveGame('menu')} onSelectGame={setActiveGame} afterDark={afterDark} />;
       default: return <MainMenu key="menu" onSelectGame={setActiveGame} afterDark={afterDark} onToggleAfterDark={() => setAfterDark(v => !v)} />;
     }
   };

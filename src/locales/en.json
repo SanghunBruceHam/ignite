@@ -7,6 +7,7 @@
         "game_vibevote": "VIBE VOTE",
         "game_never_have_i_ever": "NEVER HAVE I EVER",
         "game_kings_cup": "KING's CUP",
+        "game_redflag": "RED FLAG",
         "after_dark": "AFTER DARK"
     },
     "common": {
@@ -205,5 +206,138 @@
                 "desc": "Pour some of your drink into the center cup."
             }
         }
+    },
+    "redflag": {
+        "rules": [
+            "Read the question out loud to everyone",
+            "Debate which side is more guilty",
+            "Tap REVEAL — that side drinks!"
+        ],
+        "boys": "BOYS",
+        "girls": "GIRLS",
+        "reveal_btn": "REVEAL 🚩",
+        "next_prompt": "NEXT",
+        "guilty_label": "MORE GUILTY",
+        "drinks": "DRINKS! 🍺",
+        "prompts": [
+            {
+                "q": "Who ghosts after a great first date?",
+                "guilty": "boys"
+            },
+            {
+                "q": "Who says '5 minutes' but takes 2 hours to get ready?",
+                "guilty": "girls"
+            },
+            {
+                "q": "Who says 'I'm fine' when they're clearly NOT fine?",
+                "guilty": "girls"
+            },
+            {
+                "q": "Who double-texts after being left on read?",
+                "guilty": "girls"
+            },
+            {
+                "q": "Who checks their ex's Instagram at midnight?",
+                "guilty": "girls"
+            },
+            {
+                "q": "Who falls in love after ONE good conversation?",
+                "guilty": "boys"
+            },
+            {
+                "q": "Who lies about how many people they've been with?",
+                "guilty": "boys"
+            },
+            {
+                "q": "Who brings up their ex in every other sentence?",
+                "guilty": "girls"
+            },
+            {
+                "q": "Who leaves dirty dishes in the sink for days?",
+                "guilty": "boys"
+            },
+            {
+                "q": "Who fake-laughs at bad jokes to be nice?",
+                "guilty": "girls"
+            },
+            {
+                "q": "Who says 'we need to talk' for literally no reason?",
+                "guilty": "girls"
+            },
+            {
+                "q": "Who forgets every single anniversary?",
+                "guilty": "boys"
+            },
+            {
+                "q": "Who cries during movies but denies it?",
+                "guilty": "boys"
+            },
+            {
+                "q": "Who overshares relationship drama with their friends?",
+                "guilty": "girls"
+            },
+            {
+                "q": "Who refuses to ask for directions?",
+                "guilty": "boys"
+            },
+            {
+                "q": "Who says 'just a friend' about someone who is NOT just a friend?",
+                "guilty": "boys"
+            },
+            {
+                "q": "Who weaponizes the silent treatment?",
+                "guilty": "girls"
+            },
+            {
+                "q": "Who texts back 'lol' and calls it a conversation?",
+                "guilty": "boys"
+            },
+            {
+                "q": "Who falls for the unavailable one every single time?",
+                "guilty": "girls"
+            },
+            {
+                "q": "Who makes every argument about something from 3 years ago?",
+                "guilty": "girls"
+            },
+            {
+                "q": "Who has 17 unread messages but posts on Instagram?",
+                "guilty": "boys"
+            },
+            {
+                "q": "Who catches feelings and immediately panics?",
+                "guilty": "boys"
+            },
+            {
+                "q": "Who says 'I don't care' but ABSOLUTELY cares?",
+                "guilty": "girls"
+            },
+            {
+                "q": "Who takes the longest to apologize first?",
+                "guilty": "boys"
+            }
+        ],
+        "after_dark_prompts": [
+            {
+                "q": "Who thinks they're better in bed than they actually are?",
+                "guilty": "boys"
+            },
+            {
+                "q": "Who stays in a situationship for way too long?",
+                "guilty": "girls"
+            },
+            {
+                "q": "Who has a backup they text when they're lonely at 2am?",
+                "guilty": "boys"
+            },
+            {
+                "q": "Who takes selfies right after an argument?",
+                "guilty": "girls"
+            },
+            {
+                "q": "Who sends a 'you up?' text and calls it romance?",
+                "guilty": "boys"
+            }
+        ]
     }
 }

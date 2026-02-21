@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next';
-import { Flame, Hand, Users, Target } from 'lucide-react';
+import { Flame, Hand, Users, Target, Flag } from 'lucide-react';
 
 const GAMES = [
     { key: 'bomb31', Icon: Flame, labelKey: 'menu.game_31bomb', color: 'var(--accent-primary)' },
@@ -7,6 +7,7 @@ const GAMES = [
     { key: 'vibevote', Icon: Users, labelKey: 'menu.game_vibevote', color: 'var(--accent-warn)' },
     { key: 'neverhave', Icon: Target, labelKey: 'menu.game_never_have_i_ever', color: 'var(--neon-blue)' },
     { key: 'kingscup', Icon: null, labelKey: 'menu.game_kings_cup', color: 'var(--neon-pink)' },
+    { key: 'redflag', Icon: Flag, labelKey: 'menu.game_redflag', color: '#f06292' },
 ];
 
 export const GameRecommendations = ({ currentGame, onSelectGame }) => {

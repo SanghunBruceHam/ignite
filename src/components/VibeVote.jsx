@@ -1,7 +1,8 @@
 import { useState, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Users, Dices } from 'lucide-react';
+import { Users, Dices, Share2 } from 'lucide-react';
+import { ShareReceipt } from './ShareReceipt';
 
 export const VibeVote = ({ onBack }) => {
     const { t } = useTranslation();
@@ -11,17 +12,31 @@ export const VibeVote = ({ onBack }) => {
     const [consequence, setConsequence] = useState('');
     const [isSpinning, setIsSpinning] = useState(false);
 
+    // Receipt stats tracking
+    const [promptsPlayed, setPromptsPlayed] = useState(0);
+    const [showReceipt, setShowReceipt] = useState(false);
+
     const startGame = () => {
         setIsPlaying(true);
+        setPromptsPlayed(0);
         nextQuestion();
     };
 
     const nextQuestion = () => {
-        const prompts = t('vibevote.prompts', { returnObjects: true });
+        let prompts = t('vibevote.prompts', { returnObjects: true });
+
+        if (i18n.options.afterDark) {
+            const spicyPrompts = t('vibevote.after_dark_prompts', { returnObjects: true });
+            if (Array.isArray(spicyPrompts)) {
+                prompts = [...prompts, ...spicyPrompts];
+            }
+        }
+
         const randomPrompt = prompts[Math.floor(Math.random() * prompts.length)];
         setCurrentPrompt(randomPrompt);
         setShowSpinner(false);
         setIsSpinning(false);
+        setPromptsPlayed(prev => prev + 1);
     };
 
     const spinWheel = () => {
@@ -55,14 +70,14 @@ export const VibeVote = ({ onBack }) => {
                         animate="show"
                         exit="hidden"
                         className="flex-center glass-card"
-                        style={{ flex: 1, justifyContent: 'center' }}
+                        style={{ flex: 1, justifyContent: 'center', borderColor: 'var(--accent-warn)', boxShadow: '0 0 30px rgba(255, 234, 0, 0.15)' }}
                     >
-                        <Users size={64} className="text-gradient-primary" style={{ marginBottom: '1rem' }} />
-                        <h2 className="title-main" style={{ fontSize: '3rem' }}>{t('menu.game_vibevote')}</h2>
+                        <Users size={80} color="var(--accent-warn)" style={{ filter: 'drop-shadow(0 0 20px var(--accent-warn))', marginBottom: '1rem' }} />
+                        <h2 className="title-main" style={{ fontSize: '3rem', color: 'var(--accent-warn)', textShadow: '0 0 20px rgba(255, 234, 0, 0.5)' }}>{t('menu.game_vibevote')}</h2>
                         <p style={{ textAlign: 'center', marginBottom: '3rem', color: 'var(--text-secondary)' }}>
                             {t('vibevote.rules')}
                         </p>
-                        <button onClick={startGame} style={{ background: 'var(--accent-warn)', color: '#000', border: 'none' }}>
+                        <button onClick={startGame} style={{ background: 'var(--accent-warn)', color: '#000', border: 'none', fontFamily: "'Space Grotesk', sans-serif" }}>
                             {t('common.start')}
                         </button>
                         <button onClick={onBack} style={{ background: 'transparent' }}>
@@ -78,14 +93,16 @@ export const VibeVote = ({ onBack }) => {
                         className="flex-center"
                         style={{ flex: 1, width: '100%' }}
                     >
-                        <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '2rem' }}>
+                        <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '1rem' }}>
                             <h2 style={{
-                                fontSize: '3rem',
+                                fontSize: '3.5rem',
                                 textAlign: 'center',
-                                color: 'var(--accent-warn)',
+                                color: 'white',
                                 fontWeight: 900,
-                                textShadow: '0 0 20px rgba(255, 204, 0, 0.3)',
-                                lineHeight: 1.2
+                                textShadow: '0 0 20px rgba(255, 234, 0, 0.3)',
+                                lineHeight: 1.1,
+                                fontFamily: "'Space Grotesk', sans-serif",
+                                textTransform: 'uppercase'
                             }}>
                                 "{currentPrompt}"
                             </h2>
@@ -93,12 +110,12 @@ export const VibeVote = ({ onBack }) => {
 
                         <button
                             onClick={spinWheel}
-                            style={{ background: 'var(--glass-highlight)' }}
+                            style={{ background: 'var(--bg-charcoal)', borderColor: 'var(--accent-warn)' }}
                         >
                             <Dices size={24} color="var(--accent-warn)" />
-                            {t('vibevote.spin_wheel')}
+                            <span style={{ color: 'var(--accent-warn)' }}>{t('vibevote.spin_wheel')}</span>
                         </button>
-                        <button onClick={nextQuestion} style={{ background: 'transparent', borderBottom: '2px solid var(--accent-warn)' }}>
+                        <button onClick={nextQuestion} style={{ background: 'transparent', borderBottom: '2px solid var(--accent-warn)', borderRadius: 0 }}>
                             {t('vibevote.next_question')}
                         </button>
                         <button onClick={onBack} style={{ background: 'transparent', color: 'var(--text-secondary)', marginTop: '2rem' }}>
@@ -113,11 +130,11 @@ export const VibeVote = ({ onBack }) => {
                     >
                         <motion.div
                             animate={{ rotate: 360 }}
-                            transition={{ repeat: Infinity, duration: 0.5, ease: "linear" }}
+                            transition={{ repeat: Infinity, duration: 0.3, ease: "linear" }}
                         >
-                            <Dices size={100} color="var(--accent-warn)" />
+                            <Dices size={120} color="var(--accent-warn)" style={{ filter: 'drop-shadow(0 0 30px var(--accent-warn))' }} />
                         </motion.div>
-                        <h2 style={{ marginTop: '2rem', color: 'var(--accent-warn)', letterSpacing: '4px' }}>
+                        <h2 style={{ marginTop: '2rem', color: 'var(--accent-warn)', letterSpacing: '8px', fontSize: '2rem', fontFamily: "'Space Grotesk', sans-serif", fontWeight: 900 }}>
                             SPINNING...
                         </h2>
                     </motion.div>
@@ -127,30 +144,54 @@ export const VibeVote = ({ onBack }) => {
                         initial={{ scale: 0.5, opacity: 0 }}
                         animate={{ scale: 1, opacity: 1 }}
                         transition={{ type: "spring" }}
-                        className="flex-center glass-card"
-                        style={{ flex: 1, width: '100%', borderColor: 'var(--accent-warn)' }}
+                        className="flex-center"
+                        style={{ flex: 1, width: '100%', background: 'var(--bg-charcoal)', border: '2px solid var(--accent-warn)', borderRadius: '16px', padding: '2rem' }}
                     >
-                        <h2 style={{ color: 'var(--text-secondary)', textTransform: 'uppercase', marginBottom: '1rem' }}>
+                        <h2 style={{ color: 'var(--text-secondary)', textTransform: 'uppercase', marginBottom: '1rem', letterSpacing: '4px', fontFamily: "'Space Grotesk', sans-serif" }}>
                             LOSER MUST...
                         </h2>
                         <h1 style={{
-                            fontSize: '4rem',
+                            fontSize: '4.5rem',
                             textAlign: 'center',
                             color: 'var(--accent-warn)',
                             fontWeight: 900,
                             marginBottom: '3rem',
-                            lineHeight: 1.1
+                            lineHeight: 1,
+                            textShadow: '0 0 30px rgba(255, 234, 0, 0.4)',
+                            fontFamily: "'Space Grotesk', sans-serif",
+                            textTransform: 'uppercase'
                         }}>
                             {consequence}
                         </h1>
 
-                        <button onClick={nextQuestion} style={{ background: 'var(--accent-warn)', color: 'black' }}>
+                        <button onClick={nextQuestion} style={{ background: 'var(--accent-warn)', color: 'black', fontFamily: "'Space Grotesk', sans-serif" }}>
                             {t('vibevote.next_question')}
                         </button>
-                        <button onClick={onBack} style={{ background: 'transparent' }}>
-                            {t('common.back')}
-                        </button>
+
+                        <div style={{ display: 'flex', gap: '0.5rem', width: '100%' }}>
+                            <button onClick={() => setShowReceipt(true)} style={{ flex: 1, background: 'var(--glass-highlight)', color: 'var(--accent-warn)', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem', borderColor: 'rgba(255,234,0,0.3)', fontFamily: "'Space Grotesk', sans-serif" }}>
+                                <Share2 size={20} /> Share Result
+                            </button>
+                            <button onClick={onBack} style={{ flex: 1, background: 'transparent' }}>
+                                {t('common.back')}
+                            </button>
+                        </div>
                     </motion.div>
+                )}
+            </AnimatePresence>
+
+            {/* Receipt Overlay */}
+            <AnimatePresence>
+                {showReceipt && (
+                    <ShareReceipt
+                        gameName={t('menu.game_vibevote')}
+                        stats={[
+                            { label: "PROMPTS PLAYED", value: promptsPlayed },
+                            { label: "LAST PROMPT", value: `"${currentPrompt}"` },
+                            { label: "CONSEQUENCE", value: consequence }
+                        ]}
+                        onClose={() => setShowReceipt(false)}
+                    />
                 )}
             </AnimatePresence>
         </div>

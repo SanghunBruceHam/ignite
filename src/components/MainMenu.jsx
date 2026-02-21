@@ -110,6 +110,56 @@ export const MainMenu = ({ onSelectGame }) => {
                         </motion.div>
                     )}
                 </AnimatePresence>
+
+                {/* After Dark Toggle */}
+                <div style={{
+                    marginTop: '1rem',
+                    background: 'var(--glass-bg)',
+                    borderRadius: '32px',
+                    padding: '0.5rem 1rem',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '0.5rem',
+                    cursor: 'pointer',
+                    border: '1px solid',
+                    borderColor: i18n.options.afterDark ? '#ff1744' : 'var(--glass-border)',
+                    boxShadow: i18n.options.afterDark ? '0 0 15px rgba(255, 23, 68, 0.3)' : 'none'
+                }}
+                    onClick={() => {
+                        i18n.options.afterDark = !i18n.options.afterDark;
+                        // Force re-render just by toggling a piece of local state
+                        setShowLanguageMenu(prev => prev);
+                    }}>
+                    <div style={{
+                        width: '40px',
+                        height: '24px',
+                        background: i18n.options.afterDark ? '#ff1744' : '#333',
+                        borderRadius: '12px',
+                        position: 'relative',
+                        transition: 'background 0.3s ease'
+                    }}>
+                        <motion.div
+                            animate={{ left: i18n.options.afterDark ? '18px' : '2px' }}
+                            style={{
+                                width: '20px',
+                                height: '20px',
+                                background: 'white',
+                                borderRadius: '50%',
+                                position: 'absolute',
+                                top: '2px',
+                                boxShadow: '0 2px 4px rgba(0,0,0,0.2)'
+                            }}
+                        />
+                    </div>
+                    <span style={{
+                        fontSize: '0.9rem',
+                        fontWeight: 'bold',
+                        color: i18n.options.afterDark ? '#ff1744' : 'var(--text-secondary)'
+                    }}>
+                        {t('menu.after_dark')} 18+
+                    </span>
+                </div>
+
             </motion.div>
 
             <motion.div
@@ -131,57 +181,72 @@ export const MainMenu = ({ onSelectGame }) => {
 
                     <motion.button
                         variants={itemVariants}
-                        whileHover={{ scale: 1.02 }}
-                        whileTap={{ scale: 0.95 }}
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.9 }}
                         onClick={() => onSelectGame('bomb31')}
-                        style={{ borderLeft: '4px solid var(--accent-primary)', fontSize: '1.1rem', padding: '1rem' }}
+                        style={{ borderLeft: '6px solid var(--accent-primary)', fontSize: '1.5rem', padding: '1.5rem', display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: '0.25rem' }}
                     >
-                        <Flame size={24} color="var(--accent-primary)" />
-                        {t('menu.game_31bomb')}
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', width: '100%' }}>
+                            <Flame size={32} color="var(--accent-primary)" style={{ filter: 'drop-shadow(0 0 10px var(--accent-primary))' }} />
+                            <span style={{ flex: 1, textAlign: 'left', fontWeight: 900, textShadow: '0 0 10px rgba(255,255,255,0.2)' }}>{t('menu.game_31bomb')}</span>
+                            <span style={{ fontSize: '0.8rem', background: 'var(--accent-primary)', color: 'black', padding: '0.25rem 0.75rem', borderRadius: '4px', fontWeight: 900 }}>⚡ HYPER</span>
+                        </div>
                     </motion.button>
 
                     <motion.button
                         variants={itemVariants}
-                        whileHover={{ scale: 1.02 }}
-                        whileTap={{ scale: 0.95 }}
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.9 }}
                         onClick={() => onSelectGame('nunchitap')}
-                        style={{ borderLeft: '4px solid var(--accent-secondary)', fontSize: '1.1rem', padding: '1rem' }}
+                        style={{ borderLeft: '6px solid var(--accent-secondary)', fontSize: '1.5rem', padding: '1.5rem', display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: '0.25rem' }}
                     >
-                        <Hand size={24} color="var(--accent-secondary)" />
-                        {t('menu.game_nunchitap')}
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', width: '100%' }}>
+                            <Hand size={32} color="var(--accent-secondary)" style={{ filter: 'drop-shadow(0 0 10px var(--accent-secondary))' }} />
+                            <span style={{ flex: 1, textAlign: 'left', fontWeight: 900, textShadow: '0 0 10px rgba(255,255,255,0.2)' }}>{t('menu.game_nunchitap')}</span>
+                            <span style={{ fontSize: '0.8rem', background: 'var(--accent-secondary)', color: 'black', padding: '0.25rem 0.75rem', borderRadius: '4px', fontWeight: 900 }}>🧊 ICE</span>
+                        </div>
                     </motion.button>
 
                     <motion.button
                         variants={itemVariants}
-                        whileHover={{ scale: 1.02 }}
-                        whileTap={{ scale: 0.95 }}
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.9 }}
                         onClick={() => onSelectGame('vibevote')}
-                        style={{ borderLeft: '4px solid var(--accent-warn)', fontSize: '1.1rem', padding: '1rem' }}
+                        style={{ borderLeft: '6px solid var(--accent-warn)', fontSize: '1.5rem', padding: '1.5rem', display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: '0.25rem' }}
                     >
-                        <Users size={24} color="var(--accent-warn)" />
-                        {t('menu.game_vibevote')}
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', width: '100%' }}>
+                            <Users size={32} color="var(--accent-warn)" style={{ filter: 'drop-shadow(0 0 10px var(--accent-warn))' }} />
+                            <span style={{ flex: 1, textAlign: 'left', fontWeight: 900, textShadow: '0 0 10px rgba(255,255,255,0.2)' }}>{t('menu.game_vibevote')}</span>
+                            <span style={{ fontSize: '0.8rem', background: 'var(--accent-warn)', color: 'black', padding: '0.25rem 0.75rem', borderRadius: '4px', fontWeight: 900 }}>🗣️ ROAST</span>
+                        </div>
                     </motion.button>
 
                     <motion.button
                         variants={itemVariants}
-                        whileHover={{ scale: 1.02 }}
-                        whileTap={{ scale: 0.95 }}
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.9 }}
                         onClick={() => onSelectGame('neverhave')}
-                        style={{ borderLeft: '4px solid #b388ff', fontSize: '1.1rem', padding: '1rem' }}
+                        style={{ borderLeft: '6px solid var(--accent-success)', fontSize: '1.5rem', padding: '1.5rem', display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: '0.25rem' }}
                     >
-                        <Target size={24} color="#b388ff" />
-                        {t('menu.game_never_have_i_ever')}
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', width: '100%' }}>
+                            <Target size={32} color="var(--accent-success)" style={{ filter: 'drop-shadow(0 0 10px var(--accent-success))' }} />
+                            <span style={{ flex: 1, textAlign: 'left', fontWeight: 900, textShadow: '0 0 10px rgba(255,255,255,0.2)' }}>{t('menu.game_never_have_i_ever')}</span>
+                            <span style={{ fontSize: '0.8rem', background: 'var(--accent-success)', color: 'black', padding: '0.25rem 0.75rem', borderRadius: '4px', fontWeight: 900 }}>⚠️ EXPOSE</span>
+                        </div>
                     </motion.button>
 
                     <motion.button
                         variants={itemVariants}
-                        whileHover={{ scale: 1.02 }}
-                        whileTap={{ scale: 0.95 }}
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.9 }}
                         onClick={() => onSelectGame('kingscup')}
-                        style={{ borderLeft: '4px solid #00e676', fontSize: '1.1rem', padding: '1rem' }}
+                        style={{ borderLeft: '6px solid #FF3366', fontSize: '1.5rem', padding: '1.5rem', display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: '0.25rem', borderColor: 'var(--neon-pink)' }}
                     >
-                        <Club size={24} color="#00e676" />
-                        {t('menu.game_kings_cup')}
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', width: '100%' }}>
+                            <Club size={32} color="var(--neon-pink)" style={{ filter: 'drop-shadow(0 0 10px var(--neon-pink))' }} />
+                            <span style={{ flex: 1, textAlign: 'left', fontWeight: 900, textShadow: '0 0 10px rgba(255,255,255,0.2)' }}>{t('menu.game_kings_cup')}</span>
+                            <span style={{ fontSize: '0.8rem', background: 'var(--neon-pink)', color: 'black', padding: '0.25rem 0.75rem', borderRadius: '4px', fontWeight: 900 }}>💀 FATAL</span>
+                        </div>
                     </motion.button>
 
                 </motion.div>

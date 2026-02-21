@@ -1,23 +1,32 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;700;900&family=Space+Grotesk:wght@400;700;900&display=swap');
 
 :root {
-  /* Dynamic V2 Premium Colors */
-  --bg-gradient-1: #1a0b2e;
-  --bg-gradient-2: #3a1c71;
-  --bg-gradient-3: #d76d77;
-  --bg-gradient-4: #ffaf7b;
+  /* V5 Cyber Nightclub Aesthetic */
 
-  --glass-bg: rgba(255, 255, 255, 0.05);
-  --glass-border: rgba(255, 255, 255, 0.1);
-  --glass-highlight: rgba(255, 255, 255, 0.2);
+  /* Deep, infinite blacks */
+  --bg-dark: #000000;
+  --bg-darker: #050505;
+  --bg-charcoal: #111111;
+
+  /* Neon Accents */
+  --neon-pink: #FF007F;
+  --neon-green: #39FF14;
+  --neon-blue: #00F0FF;
+  --neon-yellow: #FFEA00;
+
+  /* Redefining primary accents for components */
+  --accent-primary: var(--neon-pink);
+  --accent-secondary: var(--neon-blue);
+  --accent-warn: var(--neon-yellow);
+  --accent-success: var(--neon-green);
+
+  /* Harsh, high-contrast borders */
+  --glass-bg: rgba(20, 20, 20, 0.7);
+  --glass-border: rgba(255, 255, 255, 0.15);
+  --glass-highlight: rgba(255, 255, 255, 0.05);
 
   --text-primary: #ffffff;
-  --text-secondary: rgba(255, 255, 255, 0.7);
-
-  /* Brand Accents */
-  --accent-primary: #ff3366;
-  --accent-secondary: #00e5ff;
-  --accent-warn: #ffcc00;
+  --text-secondary: rgba(255, 255, 255, 0.5);
 
   font-family: 'Outfit', system-ui, sans-serif;
   line-height: 1.5;
@@ -42,23 +51,37 @@ body {
   min-height: 100dvh;
   width: 100vw;
   overflow: hidden;
-  /* Fluid mesh gradient background */
-  background: linear-gradient(135deg, var(--bg-gradient-1), var(--bg-gradient-2), var(--bg-gradient-3));
-  background-size: 400% 400%;
-  animation: gradientBG 15s ease infinite;
+  background-color: var(--bg-dark);
+  color: var(--text-primary);
+  /* Cyber Grain Overlay */
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.08'/%3E%3C/svg%3E");
 }
 
-@keyframes gradientBG {
-  0% {
-    background-position: 0% 50%;
-  }
+/* Central glowing orb effect behind content */
+body::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80vw;
+  height: 80vh;
+  background: radial-gradient(circle, rgba(255, 0, 127, 0.15) 0%, rgba(0, 240, 255, 0.05) 50%, transparent 70%);
+  filter: blur(60px);
+  z-index: -1;
+  pointer-events: none;
+  animation: pulse 10s infinite alternate;
+}
 
-  50% {
-    background-position: 100% 50%;
+@keyframes pulse {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.5;
   }
 
   100% {
-    background-position: 0% 50%;
+    transform: translate(-50%, -50%) scale(1.1);
+    opacity: 0.8;
   }
 }
 
@@ -70,62 +93,67 @@ body {
   height: 100%;
 }
 
-/* Glassmorphism Buttons */
+/* Brutalist Neon Buttons */
 button {
-  background: var(--glass-bg);
+  background: var(--bg-charcoal);
   border: 1px solid var(--glass-border);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
   color: var(--text-primary);
   padding: 1.25rem 2rem;
-  font-size: 1.25rem;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.2rem;
   font-weight: 700;
-  border-radius: 24px;
+  border-radius: 12px;
+  /* Sharper than before */
   cursor: pointer;
   width: 100%;
   max-width: 400px;
   margin: 0.5rem auto;
   text-transform: uppercase;
   letter-spacing: 2px;
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
-  transition: background 0.2s, border-color 0.2s;
+  transition: all 0.2s ease;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 12px;
+  position: relative;
+  overflow: hidden;
 }
 
-/* Framer motion handles active states, but hover effects are good for desktop debugging */
+/* Frame motion handles most, but hover states for robust CSS */
 @media (hover: hover) {
   button:hover {
-    background: var(--glass-highlight);
-    border-color: var(--text-secondary);
+    background: #222;
+    border-color: rgba(255, 255, 255, 0.4);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
   }
 }
 
+/* Primary Game Title */
 .title-main {
-  font-size: 4rem;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 4.5rem;
   font-weight: 900;
   text-align: center;
   margin-bottom: 0.5rem;
-  /* Premium text gradient */
-  background: linear-gradient(to right, #ffffff, #ffaf7b);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  line-height: 1.1;
-  letter-spacing: -1px;
+  line-height: 1;
+  letter-spacing: -2px;
+  text-transform: uppercase;
+  color: var(--text-primary);
+  text-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
 }
 
 .subtitle-main {
+  font-family: 'Space Grotesk', sans-serif;
   text-align: center;
   color: var(--text-secondary);
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   margin-bottom: 3rem;
   font-weight: 400;
+  letter-spacing: 4px;
+  text-transform: uppercase;
 }
 
-/* Utility classes */
+/* Layout Utilities */
 .container {
   display: flex;
   flex-direction: column;
@@ -143,20 +171,18 @@ button {
   justify-content: center;
 }
 
+/* Harsh, dark cards */
 .glass-card {
-  background: var(--glass-bg);
-  border: 1px solid var(--glass-border);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border-radius: 32px;
+  background: rgba(10, 10, 10, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
   padding: 2rem;
   width: 100%;
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+  box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5), 0 10px 30px rgba(0, 0, 0, 1);
 }
 
 .text-gradient-primary {
-  background: linear-gradient(to right, var(--accent-primary), var(--accent-secondary));
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  /* Using solid glowing colors instead of basic gradients for V5 */
+  color: var(--neon-pink);
+  text-shadow: 0 0 20px rgba(255, 0, 127, 0.5);
 }

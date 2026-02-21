@@ -6,7 +6,8 @@
         "game_nunchitap": "NUNCHI TAP",
         "game_vibevote": "VIBE VOTE",
         "game_never_have_i_ever": "NEVER HAVE I EVER",
-        "game_kings_cup": "KING's CUP"
+        "game_kings_cup": "KING's CUP",
+        "after_dark": "AFTER DARK"
     },
     "common": {
         "start": "START",
@@ -43,7 +44,33 @@
             "Who is the biggest lightweight?",
             "Who is most likely to ghost a date?",
             "Who spends the most money on stupid things?",
-            "Who would die first in a horror movie?"
+            "Who would die first in a horror movie?",
+            "Who is most likely to cry over a mild inconvenience?",
+            "Who has the most chaotic dating history?",
+            "Who is the most chronically online?",
+            "Who would survive a zombie apocalypse the longest?",
+            "Who gives the best advice but never follows it?",
+            "Who is most likely to text their ex at 2 AM?",
+            "Who takes the most mirror selfies?",
+            "Who creates the most awkward silences?",
+            "Who is most likely to go viral for something stupid?",
+            "Who complains the most about being broke while holding an iced coffee?",
+            "Who has the most unread emails?",
+            "Who would be the worst to be stuck in an elevator with?",
+            "Who secretly loves drama the most?",
+            "Who peaked in high school?",
+            "Who is the biggest flirt?",
+            "Who tries way too hard to be aesthetic?"
+        ],
+        "after_dark_prompts": [
+            "Who has the highest body count?",
+            "Who is most likely to send nudes while drunk?",
+            "Who fakes it the most in bed?",
+            "Who has the most questionable kink?",
+            "Who is the most likely to propose a threesome tonight?",
+            "Who is the loudest in the bedroom?",
+            "Who would be the best sugar baby?",
+            "Who is most likely to sleep with an ex tonight?"
         ],
         "consequences": [
             "TAKE 2 SHOTS",
@@ -52,7 +79,10 @@
             "NO DRINKING FOR 1 ROUND",
             "WATERFALL STARTS WITH YOU",
             "POST A DUMB SELFIE",
-            "TAKE 1 SHOT WITHOUT HANDS"
+            "TAKE 1 SHOT WITHOUT HANDS",
+            "GIVE 1 DRINK TO THE SMARTEST PERSON HERE",
+            "BUY THE NEXT ROUND OF DRINKS",
+            "DO 10 BURPEES OR TAKE A SHOT"
         ]
     },
     "neverhave": {
@@ -66,7 +96,32 @@
             "Never have I ever checked my ex's social media.",
             "Never have I ever stolen something from a hotel.",
             "Never have I ever skipped work/class to sleep.",
-            "Never have I ever forgotten an anniversary or birthday."
+            "Never have I ever forgotten an anniversary or birthday.",
+            "Never have I ever re-gifted a present.",
+            "Never have I ever fallen asleep in public.",
+            "Never have I ever snooped through someone's phone.",
+            "Never have I ever practiced an argument in the mirror.",
+            "Never have I ever used someone else's toothbrush.",
+            "Never have I ever laughed at a joke I didn't get.",
+            "Never have I ever tripped in public and played it off.",
+            "Never have I ever accidentally 'liked' an old post while stalking.",
+            "Never have I ever blamed a fart on a pet.",
+            "Never have I ever faked being sick to cancel plans.",
+            "Never have I ever slid into someone's DMs and gotten ignored.",
+            "Never have I ever worn the same underwear two days in a row.",
+            "Never have I ever typed 'lol' with a completely straight face.",
+            "Never have I ever eavesdropped on strangers and gotten invested.",
+            "Never have I ever made a fake social media account."
+        ],
+        "after_dark_prompts": [
+            "Never have I ever sent a nude photo.",
+            "Never have I ever kissed more than one person in a night.",
+            "Never have I ever had a one-night stand.",
+            "Never have I ever done the walk of shame.",
+            "Never have I ever hooked up with a friend's ex.",
+            "Never have I ever joined the mile high club.",
+            "Never have I ever faked an orgasm.",
+            "Never have I ever used a dating app just for hookups."
         ]
     },
     "kingscup": {

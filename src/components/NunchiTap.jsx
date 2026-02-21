@@ -119,31 +119,55 @@ export const NunchiTap = ({ onBack }) => {
                         </button>
                     </motion.div>
                 ) : (
-                    <motion.div
-                        key="play"
-                        variants={containerVariants}
-                        initial="hidden"
-                        animate="show"
-                        exit="hidden"
-                        className="flex-center"
-                        style={{ flex: 1, width: '100%', cursor: 'pointer' }}
-                        onPointerDown={handleTap}
-                    >
-                        <div style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', border: '4px dashed var(--glass-border)', borderRadius: '32px', width: '100%', background: 'var(--glass-bg)' }}>
-                            <Hand size={64} color="var(--glass-border)" style={{ marginBottom: '2rem' }} />
-                            <h2 style={{ color: 'var(--text-secondary)', textTransform: 'uppercase', letterSpacing: '4px', textAlign: 'center' }}>
-                                {t('nunchitap.tap_to_start')}
-                            </h2>
-                            <motion.h1
-                                key={tapCount}
-                                initial={{ scale: 1.5, opacity: 0 }}
-                                animate={{ scale: 1, opacity: 1 }}
-                                style={{ fontSize: '6rem', fontWeight: 900, color: 'var(--accent-secondary)', marginTop: '1rem' }}
-                            >
-                                {tapCount > 0 ? tapCount : ""}
-                            </motion.h1>
-                        </div>
-                    </motion.div>
+                    <div style={{ flex: 1, width: '100%', position: 'relative', display: 'flex' }}>
+                        {/* Floating MENU exit button — sits outside the tap zone */}
+                        <button
+                            onClick={onBack}
+                            onPointerDown={e => e.stopPropagation()}
+                            style={{
+                                position: 'absolute',
+                                top: '0.75rem',
+                                right: '0.75rem',
+                                zIndex: 10,
+                                background: 'rgba(255,255,255,0.08)',
+                                border: '1px solid var(--glass-border)',
+                                color: 'var(--text-secondary)',
+                                padding: '0.4rem 0.9rem',
+                                borderRadius: '999px',
+                                fontSize: '0.75rem',
+                                fontWeight: 700,
+                                letterSpacing: '2px',
+                                cursor: 'pointer'
+                            }}
+                        >
+                            ← {t('common.back')}
+                        </button>
+                        <motion.div
+                            key="play"
+                            variants={containerVariants}
+                            initial="hidden"
+                            animate="show"
+                            exit="hidden"
+                            className="flex-center"
+                            style={{ flex: 1, width: '100%', cursor: 'pointer' }}
+                            onPointerDown={handleTap}
+                        >
+                            <div style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', border: '4px dashed var(--glass-border)', borderRadius: '32px', width: '100%', background: 'var(--glass-bg)' }}>
+                                <Hand size={64} color="var(--glass-border)" style={{ marginBottom: '2rem' }} />
+                                <h2 style={{ color: 'var(--text-secondary)', textTransform: 'uppercase', letterSpacing: '4px', textAlign: 'center' }}>
+                                    {t('nunchitap.tap_to_start')}
+                                </h2>
+                                <motion.h1
+                                    key={tapCount}
+                                    initial={{ scale: 1.5, opacity: 0 }}
+                                    animate={{ scale: 1, opacity: 1 }}
+                                    style={{ fontSize: '6rem', fontWeight: 900, color: 'var(--accent-secondary)', marginTop: '1rem' }}
+                                >
+                                    {tapCount > 0 ? tapCount : ""}
+                                </motion.h1>
+                            </div>
+                        </motion.div>
+                    </div>
                 )}
             </AnimatePresence>
         </div>

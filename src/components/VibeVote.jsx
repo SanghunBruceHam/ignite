@@ -59,8 +59,17 @@ export const VibeVote = ({ onBack }) => {
         show: { opacity: 1, scale: 1 }
     };
 
+    const backBtn = (
+        <div style={{ display: 'flex', justifyContent: 'flex-end', marginBottom: '0.5rem' }}>
+            <button onClick={onBack} style={{ background: 'rgba(255,255,255,0.07)', border: '1px solid var(--glass-border)', color: 'var(--text-secondary)', padding: '0.35rem 0.9rem', borderRadius: '999px', fontSize: '0.75rem', fontWeight: 700, letterSpacing: '2px', cursor: 'pointer' }}>
+                ← {t('common.back')}
+            </button>
+        </div>
+    );
+
     return (
-        <div className="container flex-center" style={{ padding: '1rem', height: '100dvh' }}>
+        <div className="container flex-center" style={{ padding: '1rem', height: '100dvh', flexDirection: 'column', justifyContent: 'flex-start' }}>
+            {backBtn}
             <AnimatePresence mode="wait">
                 {!isPlaying ? (
                     <motion.div
@@ -79,9 +88,6 @@ export const VibeVote = ({ onBack }) => {
                         </p>
                         <button onClick={startGame} style={{ background: 'var(--accent-warn)', color: '#000', border: 'none', fontFamily: "'Space Grotesk', sans-serif" }}>
                             {t('common.start')}
-                        </button>
-                        <button onClick={onBack} style={{ background: 'transparent' }}>
-                            {t('common.back')}
                         </button>
                     </motion.div>
                 ) : !showSpinner && !isSpinning ? (
@@ -117,9 +123,6 @@ export const VibeVote = ({ onBack }) => {
                         </button>
                         <button onClick={nextQuestion} style={{ background: 'transparent', borderBottom: '2px solid var(--accent-warn)', borderRadius: 0 }}>
                             {t('vibevote.next_question')}
-                        </button>
-                        <button onClick={onBack} style={{ background: 'transparent', color: 'var(--text-secondary)', marginTop: '2rem' }}>
-                            {t('common.back')}
                         </button>
                     </motion.div>
                 ) : isSpinning ? (
@@ -171,9 +174,6 @@ export const VibeVote = ({ onBack }) => {
                         <div style={{ display: 'flex', gap: '0.5rem', width: '100%', flexWrap: 'wrap' }}>
                             <button onClick={() => setShowReceipt(true)} style={{ flex: '1 1 auto', minWidth: '150px', background: 'var(--glass-highlight)', color: 'var(--accent-warn)', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem', borderColor: 'rgba(255,234,0,0.3)', fontFamily: "'Space Grotesk', sans-serif" }}>
                                 <Share2 size={20} /> Share Result
-                            </button>
-                            <button onClick={onBack} style={{ flex: '1 1 auto', minWidth: '150px', background: 'transparent' }}>
-                                {t('common.back')}
                             </button>
                         </div>
                     </motion.div>

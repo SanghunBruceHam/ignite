@@ -43,8 +43,17 @@ export const NeverHaveIEver = ({ onBack }) => {
         show: { opacity: 1, scale: 1 }
     };
 
+    const backBtn = (
+        <div style={{ display: 'flex', justifyContent: 'flex-end', marginBottom: '0.5rem' }}>
+            <button onClick={onBack} style={{ background: 'rgba(255,255,255,0.07)', border: '1px solid var(--glass-border)', color: 'var(--text-secondary)', padding: '0.35rem 0.9rem', borderRadius: '999px', fontSize: '0.75rem', fontWeight: 700, letterSpacing: '2px', cursor: 'pointer' }}>
+                ← {t('common.back')}
+            </button>
+        </div>
+    );
+
     return (
-        <div className="container flex-center" style={{ padding: '1rem', height: '100dvh' }}>
+        <div className="container flex-center" style={{ padding: '1rem', height: '100dvh', flexDirection: 'column', justifyContent: 'flex-start' }}>
+            {backBtn}
             <AnimatePresence mode="wait">
                 {!isPlaying ? (
                     <motion.div
@@ -65,9 +74,6 @@ export const NeverHaveIEver = ({ onBack }) => {
                         </p>
                         <button onClick={startGame} style={{ background: 'var(--neon-blue)', color: 'black', border: 'none', fontFamily: "'Space Grotesk', sans-serif" }}>
                             {t('common.start')}
-                        </button>
-                        <button onClick={onBack} style={{ background: 'transparent' }}>
-                            {t('common.back')}
                         </button>
                     </motion.div>
                 ) : (
@@ -105,9 +111,6 @@ export const NeverHaveIEver = ({ onBack }) => {
                                 {t('neverhave.next_prompt')}
                             </button>
                         </div>
-                        <button onClick={onBack} style={{ background: 'transparent', color: 'var(--text-secondary)' }}>
-                            {t('common.back')}
-                        </button>
                     </motion.div>
                 )}
             </AnimatePresence>

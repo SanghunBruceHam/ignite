@@ -47,8 +47,17 @@ export const Bomb31 = ({ onBack }) => {
         ? `radial-gradient(circle at center, rgba(255, 0, 127, ${tension * 0.6}) 0%, transparent 100%)`
         : 'none';
 
+    const backBtn = (
+        <div style={{ display: 'flex', justifyContent: 'flex-end', marginBottom: '0.5rem' }}>
+            <button onClick={onBack} style={{ background: 'rgba(255,255,255,0.07)', border: '1px solid var(--glass-border)', color: 'var(--text-secondary)', padding: '0.35rem 0.9rem', borderRadius: '999px', fontSize: '0.75rem', fontWeight: 700, letterSpacing: '2px', cursor: 'pointer' }}>
+                ← {t('common.back')}
+            </button>
+        </div>
+    );
+
     return (
-        <div className={`container flex-center`} style={{ padding: '1rem', height: '100dvh', background: bgGradient, transition: 'background 0.3s ease' }}>
+        <div className={`container flex-center`} style={{ padding: '1rem', height: '100dvh', background: bgGradient, transition: 'background 0.3s ease', flexDirection: 'column', justifyContent: 'flex-start' }}>
+            {backBtn}
             <AnimatePresence mode="wait">
                 {!isPlaying ? (
                     <motion.div
@@ -68,9 +77,6 @@ export const Bomb31 = ({ onBack }) => {
                         <button onClick={startGame} style={{ background: 'var(--accent-primary)', color: 'black', border: 'none', fontFamily: "'Space Grotesk', sans-serif" }}>
                             {t('common.start')}
                         </button>
-                        <button onClick={onBack} style={{ background: 'transparent' }}>
-                            {t('common.back')}
-                        </button>
                     </motion.div>
                 ) : exploded ? (
                     <motion.div
@@ -89,9 +95,6 @@ export const Bomb31 = ({ onBack }) => {
                         </h2>
                         <button onClick={startGame} style={{ background: 'white', color: 'black', fontFamily: "'Space Grotesk', sans-serif" }}>
                             PLAY AGAIN
-                        </button>
-                        <button onClick={onBack} style={{ background: 'transparent' }}>
-                            {t('common.back')}
                         </button>
                     </motion.div>
                 ) : (
@@ -138,9 +141,6 @@ export const Bomb31 = ({ onBack }) => {
                             </motion.button>
                         </div>
 
-                        <button onClick={onBack} style={{ background: 'transparent', color: 'var(--text-secondary)' }}>
-                            {t('common.back')}
-                        </button>
                     </motion.div>
                 )}
             </AnimatePresence>

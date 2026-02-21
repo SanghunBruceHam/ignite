@@ -5,7 +5,7 @@ import { Target, Share2 } from 'lucide-react';
 import { ShareReceipt } from './ShareReceipt';
 
 export const NeverHaveIEver = ({ onBack }) => {
-    const { t } = useTranslation();
+    const { t, i18n } = useTranslation();
     const [isPlaying, setIsPlaying] = useState(false);
     const [currentPrompt, setCurrentPrompt] = useState('');
 

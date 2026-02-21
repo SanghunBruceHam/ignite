@@ -5,7 +5,7 @@ import { Users, Dices, Share2 } from 'lucide-react';
 import { ShareReceipt } from './ShareReceipt';
 
 export const VibeVote = ({ onBack }) => {
-    const { t } = useTranslation();
+    const { t, i18n } = useTranslation();
     const [isPlaying, setIsPlaying] = useState(false);
     const [currentPrompt, setCurrentPrompt] = useState('');
     const [showSpinner, setShowSpinner] = useState(false);

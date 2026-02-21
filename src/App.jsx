@@ -12,11 +12,11 @@ function App() {
 
   const renderGame = () => {
     switch (activeGame) {
-      case 'bomb31': return <Bomb31 key="bomb31" onBack={() => setActiveGame('menu')} />;
-      case 'nunchitap': return <NunchiTap key="nunchitap" onBack={() => setActiveGame('menu')} />;
-      case 'vibevote': return <VibeVote key="vibevote" onBack={() => setActiveGame('menu')} />;
-      case 'neverhave': return <NeverHaveIEver key="neverhave" onBack={() => setActiveGame('menu')} />;
-      case 'kingscup': return <KingsCup key="kingscup" onBack={() => setActiveGame('menu')} />;
+      case 'bomb31': return <Bomb31 key="bomb31" onBack={() => setActiveGame('menu')} onSelectGame={setActiveGame} />;
+      case 'nunchitap': return <NunchiTap key="nunchitap" onBack={() => setActiveGame('menu')} onSelectGame={setActiveGame} />;
+      case 'vibevote': return <VibeVote key="vibevote" onBack={() => setActiveGame('menu')} onSelectGame={setActiveGame} />;
+      case 'neverhave': return <NeverHaveIEver key="neverhave" onBack={() => setActiveGame('menu')} onSelectGame={setActiveGame} />;
+      case 'kingscup': return <KingsCup key="kingscup" onBack={() => setActiveGame('menu')} onSelectGame={setActiveGame} />;
       default: return <MainMenu key="menu" onSelectGame={setActiveGame} />;
     }
   };

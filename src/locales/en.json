@@ -17,7 +17,11 @@
         "share": "SHARE"
     },
     "bomb31": {
-        "rules": "Count up by tapping +1, +2, or +3. The player who hits 31 loses and drinks!",
+        "rules": [
+            "Tap +1, +2, or +3 to add to the count",
+            "Pass the phone around the group",
+            "Hit 31? You drink!"
+        ],
         "current_number": "CURRENT NUMBER",
         "tap_1": "+1",
         "tap_2": "+2",
@@ -26,7 +30,11 @@
         "fail_message": "You hit 31. Drink up!"
     },
     "nunchitap": {
-        "rules": "Tap the screen in sequence. No talking. If two players tap at the same time, they both drink!",
+        "rules": [
+            "Take turns tapping the screen — no talking!",
+            "Two people tap at the same time?",
+            "Both players drink!"
+        ],
         "tap_to_start": "TAP TO START",
         "game_over": "CLASH!",
         "fail_message": "Double tap detected. You both drink!",
@@ -34,7 +42,11 @@
         "success_message": "You survived this round."
     },
     "vibevote": {
-        "rules": "Read the prompt. Everyone points at the person who fits it best. Spin the wheel to see the loser's consequence.",
+        "rules": [
+            "Read the prompt aloud to everyone",
+            "All players point at the person who fits best",
+            "Spin the wheel to decide their punishment!"
+        ],
         "spin_wheel": "SPIN THE WHEEL",
         "next_question": "NEXT PROMPT",
         "prompts": [
@@ -87,7 +99,11 @@
         ]
     },
     "neverhave": {
-        "rules": "Read the prompt. If you've done it, take a drink.",
+        "rules": [
+            "Read the 'Never Have I Ever…' prompt aloud",
+            "Done it before? Take a drink!",
+            "Keep going until someone cries"
+        ],
         "next_prompt": "NEXT PROMPT",
         "prompts": [
             "Never have I ever ghosted someone.",
@@ -126,7 +142,11 @@
         ]
     },
     "kingscup": {
-        "rules": "Draw a card. Follow the rule. The 4th King drawn must end the game and drink the center cup!",
+        "rules": [
+            "Draw a card and follow its rule",
+            "Every King drawn fills the center cup",
+            "The 4th King must drink it all!"
+        ],
         "draw_card": "DRAW CARD",
         "kings_remaining": "KINGS REMAINING",
         "game_over": "4TH KING!",

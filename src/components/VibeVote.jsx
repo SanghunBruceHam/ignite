@@ -3,8 +3,9 @@ import { useTranslation } from 'react-i18next';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Users, Dices, Share2 } from 'lucide-react';
 import { ShareReceipt } from './ShareReceipt';
+import { GameRecommendations } from './GameRecommendations';
 
-export const VibeVote = ({ onBack }) => {
+export const VibeVote = ({ onBack, onSelectGame }) => {
     const { t, i18n } = useTranslation();
     const [isPlaying, setIsPlaying] = useState(false);
     const [currentPrompt, setCurrentPrompt] = useState('');
@@ -83,12 +84,18 @@ export const VibeVote = ({ onBack }) => {
                     >
                         <Users size={80} color="var(--accent-warn)" style={{ filter: 'drop-shadow(0 0 20px var(--accent-warn))', marginBottom: '1rem' }} />
                         <h2 className="title-main" style={{ fontSize: '3rem', color: 'var(--accent-warn)', textShadow: '0 0 20px rgba(255, 234, 0, 0.5)' }}>{t('menu.game_vibevote')}</h2>
-                        <p style={{ textAlign: 'center', marginBottom: '3rem', color: 'var(--text-secondary)' }}>
-                            {t('vibevote.rules')}
-                        </p>
+                        <div style={{ width: '100%', marginBottom: '2rem' }}>
+                            {t('vibevote.rules', { returnObjects: true }).map((step, i) => (
+                                <div key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: '0.75rem', marginBottom: '0.6rem' }}>
+                                    <span style={{ minWidth: '1.5rem', height: '1.5rem', borderRadius: '50%', background: 'var(--accent-warn)', color: '#000', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '0.7rem', fontWeight: 900, flexShrink: 0 }}>{i + 1}</span>
+                                    <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem', margin: 0, lineHeight: 1.4 }}>{step}</p>
+                                </div>
+                            ))}
+                        </div>
                         <button onClick={startGame} style={{ background: 'var(--accent-warn)', color: '#000', border: 'none', fontFamily: "'Space Grotesk', sans-serif" }}>
                             {t('common.start')}
                         </button>
+                        {onSelectGame && <GameRecommendations currentGame="vibevote" onSelectGame={onSelectGame} />}
                     </motion.div>
                 ) : !showSpinner && !isSpinning ? (
                     <motion.div

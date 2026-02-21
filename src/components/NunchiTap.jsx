@@ -1,9 +1,10 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Hand } from 'lucide-react';
+import { GameRecommendations } from './GameRecommendations';
 
-export const NunchiTap = ({ onBack }) => {
+export const NunchiTap = ({ onBack, onSelectGame }) => {
     const { t } = useTranslation();
     const [isPlaying, setIsPlaying] = useState(false);
     const [tapCount, setTapCount] = useState(0);
@@ -73,13 +74,19 @@ export const NunchiTap = ({ onBack }) => {
                         style={{ flex: 1, justifyContent: 'center' }}
                     >
                         <Hand size={64} className="text-gradient-primary" style={{ marginBottom: '1rem' }} />
-                        <h2 className="title-main" style={{ fontSize: '3rem' }}>{t('menu.game_nunchitap')}</h2>
-                        <p style={{ textAlign: 'center', marginBottom: '3rem', color: 'var(--text-secondary)' }}>
-                            {t('nunchitap.rules')}
-                        </p>
+                        <h2 className="title-main" style={{ fontSize: '2.5rem', color: 'var(--accent-secondary)' }}>{t('menu.game_nunchitap')}</h2>
+                        <div style={{ width: '100%', marginBottom: '2rem' }}>
+                            {t('nunchitap.rules', { returnObjects: true }).map((step, i) => (
+                                <div key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: '0.75rem', marginBottom: '0.6rem' }}>
+                                    <span style={{ minWidth: '1.5rem', height: '1.5rem', borderRadius: '50%', background: 'var(--accent-secondary)', color: '#000', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '0.7rem', fontWeight: 900, flexShrink: 0 }}>{i + 1}</span>
+                                    <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem', margin: 0, lineHeight: 1.4 }}>{step}</p>
+                                </div>
+                            ))}
+                        </div>
                         <button onClick={startGame} style={{ background: 'var(--accent-secondary)', color: '#000', border: 'none' }}>
                             {t('common.start')}
                         </button>
+                        {onSelectGame && <GameRecommendations currentGame="nunchitap" onSelectGame={onSelectGame} />}
                     </motion.div>
                 ) : gameOver ? (
                     <motion.div

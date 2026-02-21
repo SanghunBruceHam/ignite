@@ -3,8 +3,9 @@ import { useTranslation } from 'react-i18next';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Club, Share2 } from 'lucide-react';
 import { ShareReceipt } from './ShareReceipt';
+import { GameRecommendations } from './GameRecommendations';
 
-export const KingsCup = ({ onBack }) => {
+export const KingsCup = ({ onBack, onSelectGame }) => {
     const { t } = useTranslation();
     const [isPlaying, setIsPlaying] = useState(false);
     const [currentCardKey, setCurrentCardKey] = useState(null);
@@ -82,12 +83,18 @@ export const KingsCup = ({ onBack }) => {
                         <h2 className="title-main" style={{ fontSize: '3rem', color: 'var(--neon-pink)', textShadow: '0 0 20px rgba(255,0,127,0.5)' }}>
                             {t('menu.game_kings_cup')}
                         </h2>
-                        <p style={{ textAlign: 'center', marginBottom: '3rem', color: 'var(--text-secondary)' }}>
-                            {t('kingscup.rules')}
-                        </p>
+                        <div style={{ width: '100%', marginBottom: '2rem' }}>
+                            {t('kingscup.rules', { returnObjects: true }).map((step, i) => (
+                                <div key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: '0.75rem', marginBottom: '0.6rem' }}>
+                                    <span style={{ minWidth: '1.5rem', height: '1.5rem', borderRadius: '50%', background: 'var(--neon-pink)', color: '#000', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '0.7rem', fontWeight: 900, flexShrink: 0 }}>{i + 1}</span>
+                                    <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem', margin: 0, lineHeight: 1.4 }}>{step}</p>
+                                </div>
+                            ))}
+                        </div>
                         <button onClick={startGame} style={{ background: 'var(--neon-pink)', color: 'black', border: 'none', fontFamily: "'Space Grotesk', sans-serif" }}>
                             {t('common.start')}
                         </button>
+                        {onSelectGame && <GameRecommendations currentGame="kingscup" onSelectGame={onSelectGame} />}
                     </motion.div>
 
                 ) : isGameOver ? (

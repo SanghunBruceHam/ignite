@@ -2,8 +2,9 @@ import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Flame } from 'lucide-react';
+import { GameRecommendations } from './GameRecommendations';
 
-export const Bomb31 = ({ onBack }) => {
+export const Bomb31 = ({ onBack, onSelectGame }) => {
     const { t } = useTranslation();
     const [isPlaying, setIsPlaying] = useState(false);
     const [currentNum, setCurrentNum] = useState(0);
@@ -71,12 +72,18 @@ export const Bomb31 = ({ onBack }) => {
                     >
                         <Flame size={80} color="var(--accent-primary)" style={{ filter: 'drop-shadow(0 0 20px rgba(255,0,127,0.8))', marginBottom: '1rem' }} />
                         <h2 className="title-main" style={{ fontSize: '3rem', color: 'var(--accent-primary)', textShadow: '0 0 20px rgba(255,0,127,0.5)' }}>{t('menu.game_31bomb')}</h2>
-                        <p style={{ textAlign: 'center', marginBottom: '3rem', color: 'var(--text-secondary)' }}>
-                            {t('bomb31.rules')}
-                        </p>
+                        <div style={{ width: '100%', marginBottom: '2rem' }}>
+                            {t('bomb31.rules', { returnObjects: true }).map((step, i) => (
+                                <div key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: '0.75rem', marginBottom: '0.6rem' }}>
+                                    <span style={{ minWidth: '1.5rem', height: '1.5rem', borderRadius: '50%', background: 'var(--accent-primary)', color: '#000', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '0.7rem', fontWeight: 900, flexShrink: 0 }}>{i + 1}</span>
+                                    <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem', margin: 0, lineHeight: 1.4 }}>{step}</p>
+                                </div>
+                            ))}
+                        </div>
                         <button onClick={startGame} style={{ background: 'var(--accent-primary)', color: 'black', border: 'none', fontFamily: "'Space Grotesk', sans-serif" }}>
                             {t('common.start')}
                         </button>
+                        {onSelectGame && <GameRecommendations currentGame="bomb31" onSelectGame={onSelectGame} />}
                     </motion.div>
                 ) : exploded ? (
                     <motion.div

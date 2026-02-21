@@ -70,7 +70,7 @@ export const MainMenu = ({ onSelectGame }) => {
             <motion.div
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
-                style={{ position: 'absolute', top: '1.5rem', right: '1.5rem', zIndex: 10, display: 'flex', alignItems: 'center', gap: '0.75rem' }}
+                style={{ width: '100%', display: 'flex', justifyContent: 'flex-end', alignItems: 'center', gap: '0.75rem', marginBottom: '2rem', zIndex: 10 }}
             >
                 {/* Share App Button */}
                 <button

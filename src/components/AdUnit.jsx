@@ -16,7 +16,7 @@ export const AdUnit = ({ slotId, style = {} }) => {
             <ins className="adsbygoogle"
                 style={{ display: 'block', width: '100%', textAlign: 'center' }}
                 data-ad-client="ca-pub-5508768187151867"
-                data-ad-slot={slotId || "XXXXXXXXXX"}
+                data-ad-slot={slotId || "8583724069"}
                 data-ad-format="auto"
                 data-full-width-responsive="true"></ins>
             {!slotId && <span style={{ position: 'absolute', fontSize: '0.7rem', color: 'var(--text-secondary)' }}>Ad Space (Requires Ad Unit ID)</span>}
